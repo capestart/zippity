@@ -17,12 +17,12 @@ const Item = ({
       selected ? styles.selectedItem : styles.item
     }
   >
-    <Text style={styles.title}>{ Moment(date).format('dddd, MMMM d') }</Text>
+    <Text style={styles.title}>{ Moment(date).format('dddd, MMMM D') }</Text>
   </TouchableOpacity>
 );
 
 const HeaderInfo = () => (
-  <View style={styles.infoContainer}>
+  <View style={styles.infoContainer} accessibilityRole="header">
     <View style={styles.inforContainerView}>
       <Text style={styles.scheduleTitleText}>Schedule Your Service</Text>
       <View style={styles.optionView}>
@@ -69,6 +69,7 @@ export default function Schedule() {
           <View style={styles.formContainer}>
             <Text style={styles.chooseText}>Choose a Service Date</Text>
             <FlatList
+              accessibilityRole="summary"
               data={DATES}
               style={styles.flatList}
               renderItem={({ item }) => (
@@ -81,7 +82,7 @@ export default function Schedule() {
               )}
             />
             <Text style={styles.chooseTimeText}>When do you arrive and leave from work?</Text>
-            <View style={styles.sliderContainer}>
+            <View style={styles.sliderContainer} accessibilityRole="progressbar">
               <CustomSlider
                 data={TIMES}
                 padding={40}
@@ -96,7 +97,7 @@ export default function Schedule() {
               <View style={styles.timeInfoTo}>
                 <Text style={styles.timeInfoText}>to</Text>
               </View>
-              <View style={styles.timeInfoBox}>
+              <View style={styles.timeInfoBox} accessibilityRole="text">
                 <Text style={styles.timeInfoText}>{departure}</Text>
               </View>
             </View>

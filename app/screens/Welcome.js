@@ -46,6 +46,7 @@ export default function Welcome({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.header}>Welcome to Zippity!</Text>
       <TouchableOpacity
+        accessibilityRole="button"
         style={styles.button}
         activeOpacity={0.6}
         onPress={() => navigation.push('Schedule')}
@@ -63,6 +64,6 @@ export default function Welcome({ navigation }) {
 
 Welcome.propTypes = {
   navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
+    push: PropTypes.func.isRequired,
   }).isRequired,
 };
