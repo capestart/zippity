@@ -17,7 +17,7 @@ const Item = ({
       selected ? styles.selectedItem : styles.item
     }
   >
-    <Text style={styles.title}>{ Moment(date).format('dddd, MMMM D') }</Text>
+    <Text style={selected ? styles.selectedTitle : styles.title}>{ Moment(date).format('dddd, MMMM D') }</Text>
   </TouchableOpacity>
 );
 
@@ -55,6 +55,7 @@ export default function Schedule() {
     [selected],
   );
   const multiSliderValueCallback = (values) => {
+    console.log('multiSliderValueCallback');
     if (values !== undefined) {
       setArrival(values[0].time);
       setDeparture(values[1].time);
@@ -113,7 +114,13 @@ export default function Schedule() {
                 style={selected.size === 0 ? styles.button : styles.selectedButton}
                 activeOpacity={0.6}
               >
-                <Text style={styles.buttonText}>Continue</Text>
+                <Text style={styles.buttonText}>
+                  Continue
+                  {' '}
+                  <Text style={styles.nextIcon}> &nbsp; &#x25B6;</Text>
+                  {' '}
+
+                </Text>
               </TouchableOpacity>
               { selected.size === 0
                 ? (

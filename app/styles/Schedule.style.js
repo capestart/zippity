@@ -4,7 +4,7 @@ const DEVICE_WIDTH = Dimensions.get('window').width;
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#c3c3c3',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -23,15 +23,24 @@ export default StyleSheet.create({
     marginHorizontal: 16,
     borderWidth: 0.5,
     borderColor: '#e69391',
+    borderRadius: 3,
   },
   selectedItem: {
-    backgroundColor: 'gray',
+    backgroundColor: '#e5e8e8',
     padding: 15,
     marginVertical: 3,
     marginHorizontal: 16,
-    borderWidth: 0,
+    borderWidth: 0.5,
+    borderColor: '#ccc',
+    borderRadius: 3,
+    color: '#fff',
   },
   title: {
+    fontSize: 22,
+    color: '#262626',
+  },
+  selectedTitle: {
+    color: '#ccc',
     fontSize: 22,
   },
   markerStyle: {
@@ -44,15 +53,16 @@ export default StyleSheet.create({
   buttonText: {
     fontSize: 24,
     marginLeft: 20,
-    color: 'white',
+    color: '#a4a4a4',
   },
   button: {
-    marginTop: 30,
+    marginTop: 40,
     width: 200,
     height: 50,
     borderRadius: 5,
     justifyContent: 'center',
-    backgroundColor: 'gray',
+    backgroundColor: '#dfdfdf',
+    marginBottom: 20,
   },
   selectedButton: {
     marginTop: 30,
@@ -73,9 +83,9 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   scheduleTitleText: {
-    fontSize: 35,
+    fontSize: 36,
     fontWeight: '600',
-    color: '#000000',
+    color: '#262626',
     textAlign: 'center',
     margin: 10,
   },
@@ -109,6 +119,10 @@ export default StyleSheet.create({
     margin: 5,
     borderRadius: 10,
     justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
   },
   infoLabel: {
     fontSize: 20,
@@ -116,6 +130,7 @@ export default StyleSheet.create({
     textAlign: 'left',
     marginTop: 20,
     marginLeft: 10,
+    color: '#262626',
   },
   formContainer: {
     backgroundColor: '#ffffff',
@@ -124,11 +139,17 @@ export default StyleSheet.create({
     marginTop: -20,
     borderRadius: 10,
     padding: 10,
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
   chooseText: {
-    fontSize: 35,
+    fontSize: 36,
     fontWeight: '600',
-    color: '#000000',
+    color: '#262626',
     textAlign: 'left',
     margin: 15,
     marginTop: 30,
@@ -138,6 +159,7 @@ export default StyleSheet.create({
     fontWeight: '500',
     textAlign: 'left',
     marginTop: 20,
+    color: '#262626',
   },
   sliderContainer: {
     display: 'flex',
@@ -152,7 +174,7 @@ export default StyleSheet.create({
     marginTop: 20,
   },
   timeInfoBox: {
-    borderColor: '#000000',
+    borderColor: '#dfdfdf',
     borderWidth: 1,
     borderRadius: 10,
     width: 100,
@@ -163,6 +185,7 @@ export default StyleSheet.create({
   timeInfoText: {
     fontSize: 20,
     fontWeight: '400',
+    color: '#a0a0a0',
   },
   timeInfoTo: {
     width: 40,
@@ -172,7 +195,8 @@ export default StyleSheet.create({
   },
   textArea: {
     height: 120,
-    borderColor: 'gray',
+    borderColor: '#dfdfdf',
+    borderRadius: 3,
     borderWidth: 1,
     marginTop: 5,
     fontSize: 15,
@@ -180,17 +204,23 @@ export default StyleSheet.create({
   errorText: {
     fontSize: 20,
     fontWeight: '400',
-    color: '#e69391',
+    color: '#d95654',
+    marginBottom: 30,
+    lineHeight: 30,
   },
   flatList: {
     flexGrow: 0,
     height: 320,
   },
   commentsView: {
-    marginTop: 40,
+    paddingTop: 80,
   },
   commentsText: {
-    fontSize: 23,
+    fontSize: 20,
     fontWeight: '400',
+    color: '#262626',
+  },
+  nextIcon: {
+    fontSize: 20,
   },
 });

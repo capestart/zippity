@@ -41,9 +41,11 @@ export default StyleSheet.create({
     height: 30,
   },
   trackStyle: {
-    backgroundColor: '#bdc3c7',
+    backgroundColor: '#ebebeb',
+    height: 3,
   },
   selectedStyle: {
-    backgroundColor: '#459ba1',
+    backgroundColor: '#abe3fb',
+    height: 3,
   },
 });
