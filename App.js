@@ -17,20 +17,20 @@ const AppNavigator = createStackNavigator({
       gestureEnabled: false,
       headerTitle: () => (
         <Image
-          style={{ width: 150, height: 40, resizeMode: 'contain' }}
+          style={{ width: 170, height: 60, resizeMode: 'contain' }}
           source={{ uri: 'https://zippity.imgix.net/zippity-logo-white.png?auto=format,compress' }}
         />
       ),
       headerLeft: () => (
         <TouchableHighlight style={{ paddingLeft: 20 }}>
           <Image
-            style={{ width: 25, height: 25 }}
+            style={{ width: 18, height: 18, marginLeft: 5 }}
             source={require('./app/assets/menu.png')}
           />
         </TouchableHighlight>
       ),
       headerStyle: {
-        backgroundColor: '#459ba1',
+        backgroundColor: '#459ba1', height: 120,
       },
       headerTintColor: '#ffffff',
     },

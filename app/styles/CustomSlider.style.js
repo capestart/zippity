@@ -37,8 +37,8 @@ export default StyleSheet.create({
     color: '#bdc3c7',
   },
   image: {
-    width: 30,
-    height: 30,
+    width: 15,
+    height: 15,
   },
   trackStyle: {
     backgroundColor: '#ebebeb',

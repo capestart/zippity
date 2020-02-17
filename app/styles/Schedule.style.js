@@ -26,7 +26,7 @@ export default StyleSheet.create({
     borderRadius: 3,
   },
   selectedItem: {
-    backgroundColor: '#e5e8e8',
+    backgroundColor: '#48999e',
     padding: 15,
     marginVertical: 3,
     marginHorizontal: 16,
@@ -40,7 +40,7 @@ export default StyleSheet.create({
     color: '#262626',
   },
   selectedTitle: {
-    color: '#ccc',
+    color: '#fff',
     fontSize: 22,
   },
   markerStyle: {
@@ -52,8 +52,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     fontSize: 24,
-    marginLeft: 20,
-    color: '#a4a4a4',
+    color: '#9f9f9f',
   },
   button: {
     marginTop: 40,
@@ -63,6 +62,22 @@ export default StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#dfdfdf',
     marginBottom: 20,
+    textAlign: 'center',
+    display: 'flex',
+  },
+  buttonCenter: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  textActive: {
+    color: '#fff',
+    fontSize: 24,
+  },
+  iconActive: {
+    color: '#fff',
+    fontSize: 20,
   },
   selectedButton: {
     marginTop: 30,
@@ -76,7 +91,7 @@ export default StyleSheet.create({
     backgroundColor: '#e5e8e8',
     height: 260,
     width: DEVICE_WIDTH - 30,
-    marginTop: 10,
+    marginTop: 3,
     borderRadius: 10,
   },
   inforContainerView: {
@@ -136,7 +151,7 @@ export default StyleSheet.create({
     backgroundColor: '#ffffff',
     height: 1100,
     width: DEVICE_WIDTH - 30,
-    marginTop: -20,
+    marginTop: -30,
     borderRadius: 10,
     padding: 10,
     borderWidth: 0.5,
@@ -185,7 +200,7 @@ export default StyleSheet.create({
   timeInfoText: {
     fontSize: 20,
     fontWeight: '400',
-    color: '#a0a0a0',
+    color: '#818181',
   },
   timeInfoTo: {
     width: 40,
@@ -222,5 +237,6 @@ export default StyleSheet.create({
   },
   nextIcon: {
     fontSize: 20,
+    color: '#a0a0a0',
   },
 });

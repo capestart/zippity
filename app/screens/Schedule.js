@@ -114,13 +114,13 @@ export default function Schedule() {
                 style={selected.size === 0 ? styles.button : styles.selectedButton}
                 activeOpacity={0.6}
               >
-                <Text style={styles.buttonText}>
-                  Continue
-                  {' '}
-                  <Text style={styles.nextIcon}> &nbsp; &#x25B6;</Text>
-                  {' '}
+                <View style={styles.buttonCenter}>
+                  <Text style={selected.size === 0 ? styles.buttonText : styles.textActive}>
+                    Continue
+                  </Text>
+                  <Text style={selected.size === 0 ? styles.nextIcon : styles.iconActive}> &nbsp; &#x25B6;</Text>
+                </View>
 
-                </Text>
               </TouchableOpacity>
               { selected.size === 0
                 ? (
