@@ -8,6 +8,9 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  scrollViewContainer: {
+    backgroundColor: '#fff',
+  },
   textContainer: {
     width: '70%',
   },
@@ -149,7 +152,7 @@ export default StyleSheet.create({
   },
   formContainer: {
     backgroundColor: '#ffffff',
-    height: 1100,
+    height: 1300,
     width: DEVICE_WIDTH - 30,
     marginTop: -30,
     borderRadius: 10,

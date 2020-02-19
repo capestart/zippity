@@ -2,12 +2,12 @@ export const DATES = [
   {
     id: '1',
     date: new Date('2020-02-04'),
-    isAvailable: false,
+    isAvailable: true,
   },
   {
     id: '2',
     date: new Date('2020-02-18'),
-    isAvailable: false,
+    isAvailable: true,
   },
   {
     id: '3',

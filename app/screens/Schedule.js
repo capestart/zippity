@@ -49,13 +49,14 @@ export default function Schedule() {
     (id) => {
       const newSelected = new Map();
       newSelected.delete(id, selected.get(id));
-      newSelected.set(id, !selected.get(id));
+      if (selected.get(id) !== true) {
+        newSelected.set(id, !selected.get(id));
+      }
       setSelected(newSelected);
     },
     [selected],
   );
   const multiSliderValueCallback = (values) => {
-    console.log('multiSliderValueCallback');
     if (values !== undefined) {
       setArrival(values[0].time);
       setDeparture(values[1].time);
@@ -64,7 +65,7 @@ export default function Schedule() {
 
   return (
     <KeyboardAvoidingView behavior="position">
-      <ScrollView>
+      <ScrollView style={styles.scrollViewContainer}>
         <View style={styles.container}>
           <HeaderInfo />
           <View style={styles.formContainer}>
