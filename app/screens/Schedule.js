@@ -6,7 +6,7 @@ import Moment from 'moment';
 import PropTypes from 'prop-types';
 import CustomSlider from './slider/CustomSlider';
 import styles from '../styles/Schedule.style';
-import { DATES, TIMES } from '../const/ScheduleData';
+import { DATES, TIMES, TIME_FRAME } from '../const/ScheduleData';
 
 const Item = ({
   id, date, selected, onSelect,
@@ -43,8 +43,9 @@ const HeaderInfo = () => (
 
 export default function Schedule() {
   const [selected, setSelected] = useState(new Map());
-  const [arrival, setArrival] = useState('5AM');
-  const [departure, setDeparture] = useState('9PM');
+  const [arrival, setArrival] = useState('5:00 AM');
+  const [departure, setDeparture] = useState('9:00 PM');
+  const [timeRange, setTimeRange] = useState(16);
   const onSelect = React.useCallback(
     (id) => {
       const newSelected = new Map();
@@ -60,6 +61,7 @@ export default function Schedule() {
     if (values !== undefined) {
       setArrival(values[0].time);
       setDeparture(values[1].time);
+      setTimeRange(values[1].value - values[0].value);
     }
   };
 
@@ -87,6 +89,7 @@ export default function Schedule() {
             <View style={styles.sliderContainer} accessibilityRole="progressbar">
               <CustomSlider
                 data={TIMES}
+                dataframe={TIME_FRAME}
                 padding={40}
                 callback={multiSliderValueCallback}
                 single={false}
@@ -112,18 +115,25 @@ export default function Schedule() {
                 multiline
               />
               <TouchableOpacity
-                style={selected.size === 0 ? styles.button : styles.selectedButton}
+                style={(selected.size === 0 || timeRange < 4)
+                  ? styles.button : styles.selectedButton}
                 activeOpacity={0.6}
               >
                 <View style={styles.buttonCenter}>
-                  <Text style={selected.size === 0 ? styles.buttonText : styles.textActive}>
+                  <Text style={(selected.size === 0 || timeRange < 4)
+                    ? styles.buttonText : styles.textActive}
+                  >
                     Continue
                   </Text>
-                  <Text style={selected.size === 0 ? styles.nextIcon : styles.iconActive}> &nbsp; &#x25B6;</Text>
+                  <Text style={(selected.size === 0 || timeRange < 4)
+                    ? styles.nextIcon : styles.iconActive}
+                  >
+                     &nbsp; &#x25B6;
+                  </Text>
                 </View>
 
               </TouchableOpacity>
-              { selected.size === 0
+              { (selected.size === 0 || timeRange < 4)
                 ? (
                   <Text style={styles.errorText}>
                     Please select a date and time before you can continue

@@ -16,20 +16,14 @@ const SliderMarker = () => (
 );
 
 const SliderItem = ({
-  data, value, arrival, departure,
-}) => {
-  const checkActive = () => {
-    if (value >= arrival && value <= departure) return true;
-    return false;
-  };
-  return (
-    <View>
-      <Text style={[checkActive() ? styles.sliderActive : styles.sliderInactive]}>
-        {data}
-      </Text>
-    </View>
-  );
-};
+  data,
+}) => (
+  <View>
+    <Text style={styles.sliderActive}>
+      {data}
+    </Text>
+  </View>
+);
 
 const RenderScale = ({ data, arrival, departure }) => data.map((item) => (
   <SliderItem
@@ -41,7 +35,9 @@ const RenderScale = ({ data, arrival, departure }) => data.map((item) => (
   />
 ));
 
-const CustomSlider = ({ data, padding, callback }) => {
+const CustomSlider = ({
+  data, dataframe, padding, callback,
+}) => {
   const initialValue = [1, data.length];
   const [multiSliderValue, setMultiSliderValue] = useState(initialValue);
   const [arrival, setArrival] = useState(1);
@@ -73,7 +69,7 @@ const CustomSlider = ({ data, padding, callback }) => {
         />
       </View>
       <View style={styles.column}>
-        <RenderScale data={data} arrival={arrival} departure={departure} />
+        <RenderScale data={dataframe} arrival={arrival} departure={departure} />
       </View>
     </View>
   );
@@ -88,13 +84,16 @@ CustomSlider.propTypes = {
       time: PropTypes.string,
     }),
   ).isRequired,
+  dataframe: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      time: PropTypes.string,
+    }),
+  ).isRequired,
   padding: PropTypes.number.isRequired,
   callback: PropTypes.func.isRequired,
 };
 
 SliderItem.propTypes = {
   data: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
-  arrival: PropTypes.number.isRequired,
-  departure: PropTypes.number.isRequired,
 };

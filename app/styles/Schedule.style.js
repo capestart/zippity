@@ -101,7 +101,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   scheduleTitleText: {
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: '600',
     color: '#262626',
     textAlign: 'center',
@@ -165,7 +165,7 @@ export default StyleSheet.create({
     shadowRadius: 2,
   },
   chooseText: {
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: '600',
     color: '#262626',
     textAlign: 'left',
