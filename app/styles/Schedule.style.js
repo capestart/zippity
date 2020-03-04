@@ -201,7 +201,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 0,
+    marginTop: 10,
   },
   timeInfoBox: {
     borderColor: '#dfdfdf',
@@ -225,7 +225,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   textArea: {
-    height: 120,
+    height: 100,
     borderColor: '#dfdfdf',
     borderRadius: 3,
     borderWidth: 1,
