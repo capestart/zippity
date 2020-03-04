@@ -43,7 +43,7 @@ const CustomSlider = ({
   const [arrival, setArrival] = useState(1);
   const [departure, setDeparture] = useState(data.length);
   const multiSliderValuesChange = (values) => {
-    if (values !== undefined) {
+    if (values) {
       setMultiSliderValue(values);
       setArrival(values[0]);
       setDeparture(values[1]);

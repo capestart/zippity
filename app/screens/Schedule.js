@@ -6,7 +6,10 @@ import Moment from 'moment';
 import PropTypes from 'prop-types';
 import CustomSlider from './slider/CustomSlider';
 import styles from '../styles/Schedule.style';
-import { DATES, TIMES, TIME_FRAME } from '../const/ScheduleData';
+import {
+  DATES, TIMES, TIME_FRAME, DEFAULT_TIME_RANGE, TIME_RANGE_LIMIT,
+  DEFAULT_ARRIVAL_TIME, DEFAULT_DEPARTURE_TIME,
+} from '../const/ScheduleData';
 
 const Item = ({
   id, date, selected, onSelect,
@@ -43,9 +46,9 @@ const HeaderInfo = () => (
 
 export default function Schedule() {
   const [selected, setSelected] = useState(new Map());
-  const [arrival, setArrival] = useState('5:00 AM');
-  const [departure, setDeparture] = useState('9:00 PM');
-  const [timeRange, setTimeRange] = useState(16);
+  const [arrival, setArrival] = useState(DEFAULT_ARRIVAL_TIME);
+  const [departure, setDeparture] = useState(DEFAULT_DEPARTURE_TIME);
+  const [timeRange, setTimeRange] = useState(DEFAULT_TIME_RANGE);
   const onSelect = React.useCallback(
     (id) => {
       const newSelected = new Map();
@@ -67,7 +70,11 @@ export default function Schedule() {
 
   return (
     <KeyboardAvoidingView behavior="position">
-      <ScrollView style={styles.scrollViewContainer}>
+      <ScrollView
+        style={styles.scrollViewContainer}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
         <View style={styles.container}>
           <HeaderInfo />
           <View style={styles.formContainer}>
@@ -115,17 +122,17 @@ export default function Schedule() {
                 multiline
               />
               <TouchableOpacity
-                style={(selected.size === 0 || timeRange < 4)
+                style={(selected.size === 0 || timeRange < TIME_RANGE_LIMIT)
                   ? styles.button : styles.selectedButton}
                 activeOpacity={0.6}
               >
                 <View style={styles.buttonCenter}>
-                  <Text style={(selected.size === 0 || timeRange < 4)
+                  <Text style={(selected.size === 0 || timeRange < TIME_RANGE_LIMIT)
                     ? styles.buttonText : styles.textActive}
                   >
                     Continue
                   </Text>
-                  <Text style={(selected.size === 0 || timeRange < 4)
+                  <Text style={(selected.size === 0 || timeRange < TIME_RANGE_LIMIT)
                     ? styles.nextIcon : styles.iconActive}
                   >
                      &nbsp; &#x25B6;
@@ -133,7 +140,7 @@ export default function Schedule() {
                 </View>
 
               </TouchableOpacity>
-              { (selected.size === 0 || timeRange < 4)
+              { (selected.size === 0 || timeRange < TIME_RANGE_LIMIT)
                 ? (
                   <Text style={styles.errorText}>
                     Please select a date and time before you can continue

@@ -7,9 +7,9 @@ export default StyleSheet.create({
   },
   column: {
     flexDirection: 'row',
-    alignItems: 'center',
+    // alignItems: 'center',
     justifyContent: 'space-between',
-    bottom: -10,
+    bottom: 0,
     marginLeft: 0,
     marginRight: 0,
   },
@@ -25,7 +25,7 @@ export default StyleSheet.create({
   },
   sliderActive: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 12,
     bottom: 10,
     color: '#5e5e5e',
   },

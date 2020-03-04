@@ -119,3 +119,8 @@ export const TIMES = [
     time: '9:00 PM',
   },
 ];
+
+export const DEFAULT_TIME_RANGE = 16;
+export const TIME_RANGE_LIMIT = 4;
+export const DEFAULT_ARRIVAL_TIME = '5:00 AM';
+export const DEFAULT_DEPARTURE_TIME = '9:00 PM';

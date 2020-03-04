@@ -26,10 +26,10 @@ describe('Schedule Page', () => {
     });
     test('Check flatlist item after selection', async () => {
       fireEvent.press(getByText('Tuesday, February 4'));
-      expect(getByText('Tuesday, February 4').parentNode.props.style.backgroundColor).toBe('gray');
+      expect(getByText('Tuesday, February 4').parentNode.props.style.backgroundColor).toBe('#48999e');
     });
     test('Validate continue button after date selection', async () => {
-      expect(getByText('Continue').parentNode.props.style.backgroundColor).toBe('#48999e');
+      expect(getByText('Continue').parentNode.props.style.backgroundColor).toBe(undefined);
     });
   });
 });

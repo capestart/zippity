@@ -19,12 +19,33 @@ describe('CustomSlider Page', () => {
       time: 'Noon',
     },
   ];
+  const timeFrame = [
+    {
+      value: 1,
+      time: '5 AM',
+    },
+    {
+      value: 2,
+      time: '9 AM',
+    },
+    {
+      value: 3,
+      time: 'Noon',
+    },
+    {
+      value: 4,
+      time: '5 PM',
+    },
+    {
+      value: 5,
+      time: '9 PM',
+    },
+  ];
   const callback = jest.fn();
   const {
-    container,
-  } = render(<MultiSlider data={times} padding={20} callback={callback} />);
+    getByText,
+  } = render(<MultiSlider data={times} dataframe={timeFrame} padding={20} callback={callback} />);
   test('Check slider item', async () => {
-    const values = [1, 2];
-    fireEvent(container.children, 'onValuesChange', values);
+    expect(getByText('Noon')).toBeTruthy();
   });
 });
