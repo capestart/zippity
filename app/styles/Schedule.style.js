@@ -41,10 +41,12 @@ export default StyleSheet.create({
     height: 50,
   },
   title: {
+    fontFamily: 'Nunito-Regular',
     fontSize: 20,
     color: '#262626',
   },
   selectedTitle: {
+    fontFamily: 'Nunito-Regular',
     color: '#fff',
     fontSize: 20,
   },
@@ -56,6 +58,7 @@ export default StyleSheet.create({
     backgroundColor: '#459ba1',
   },
   buttonText: {
+    fontFamily: 'Nunito-Regular',
     fontSize: 24,
     color: '#9f9f9f',
   },
@@ -77,6 +80,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   textActive: {
+    fontFamily: 'Nunito-Regular',
     color: '#fff',
     fontSize: 24,
   },
@@ -103,19 +107,22 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   scheduleTitleText: {
+    fontFamily: 'Nunito-Bold',
     fontSize: 30,
-    fontWeight: '600',
+    // fontWeight: '600',
     color: '#262626',
     textAlign: 'center',
     margin: 10,
   },
   optionText: {
+    fontFamily: 'Nunito-Regular',
     fontSize: 20,
     fontWeight: '400',
     color: '#000000',
     textAlign: 'center',
   },
   scheduleText: {
+    fontFamily: 'Nunito-Regular',
     fontSize: 20,
     fontWeight: '400',
     color: '#ffffff',
@@ -145,6 +152,7 @@ export default StyleSheet.create({
     shadowRadius: 2,
   },
   infoLabel: {
+    fontFamily: 'Nunito-SemiBold',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'left',
@@ -154,9 +162,9 @@ export default StyleSheet.create({
   },
   formContainer: {
     backgroundColor: '#ffffff',
-    height: 1300,
+    height: 1100,
     width: DEVICE_WIDTH - 30,
-    marginTop: -30,
+    marginTop: -20,
     borderRadius: 10,
     padding: 10,
     borderWidth: 0.5,
@@ -167,6 +175,7 @@ export default StyleSheet.create({
     shadowRadius: 2,
   },
   chooseText: {
+    fontFamily: 'Nunito-Bold',
     fontSize: 30,
     fontWeight: '600',
     color: '#262626',
@@ -175,10 +184,11 @@ export default StyleSheet.create({
     marginTop: 30,
   },
   chooseTimeText: {
+    fontFamily: 'Nunito-SemiBold',
     fontSize: 26,
     fontWeight: '500',
     textAlign: 'left',
-    marginTop: 20,
+    marginTop: 0,
     color: '#262626',
   },
   sliderContainer: {
@@ -189,9 +199,9 @@ export default StyleSheet.create({
   timeInfoContainer: {
     display: 'flex',
     flexDirection: 'row',
-    marginLeft: 60,
-    marginRight: 60,
-    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 0,
   },
   timeInfoBox: {
     borderColor: '#dfdfdf',
@@ -203,7 +213,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   timeInfoText: {
-    fontSize: 20,
+    fontFamily: 'Nunito-Regular',
+    fontSize: 15,
     fontWeight: '400',
     color: '#818181',
   },
@@ -222,6 +233,7 @@ export default StyleSheet.create({
     fontSize: 15,
   },
   errorText: {
+    fontFamily: 'Nunito-Regular',
     fontSize: 20,
     fontWeight: '400',
     color: '#d95654',
@@ -236,6 +248,7 @@ export default StyleSheet.create({
     paddingTop: 80,
   },
   commentsText: {
+    fontFamily: 'Nunito-Regular',
     fontSize: 20,
     fontWeight: '400',
     color: '#262626',

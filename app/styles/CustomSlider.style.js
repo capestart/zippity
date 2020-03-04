@@ -23,6 +23,7 @@ export default StyleSheet.create({
     color: '#bdc3c7',
   },
   sliderActive: {
+    fontFamily: 'Nunito-Regular',
     textAlign: 'center',
     fontSize: 12,
     bottom: 10,
