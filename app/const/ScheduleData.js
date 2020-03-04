@@ -29,11 +29,11 @@ export const DATES = [
 export const TIME_FRAME = [
   {
     value: 1,
-    time: '5 AM',
+    time: '5AM',
   },
   {
     value: 2,
-    time: '9 AM',
+    time: '9AM',
   },
   {
     value: 3,
@@ -41,11 +41,11 @@ export const TIME_FRAME = [
   },
   {
     value: 4,
-    time: '5 PM',
+    time: '5PM',
   },
   {
     value: 5,
-    time: '9 PM',
+    time: '9PM',
   },
 ];
 

@@ -7,11 +7,10 @@ export default StyleSheet.create({
   },
   column: {
     flexDirection: 'row',
-    // alignItems: 'center',
     justifyContent: 'space-between',
     bottom: 0,
-    marginLeft: 0,
-    marginRight: 0,
+    marginLeft: -10,
+    marginRight: -10,
   },
   active: {
     textAlign: 'center',
@@ -39,13 +38,14 @@ export default StyleSheet.create({
   image: {
     width: 15,
     height: 15,
+    top: 2,
   },
   trackStyle: {
     backgroundColor: '#ebebeb',
-    height: 3,
+    height: 5,
   },
   selectedStyle: {
     backgroundColor: '#abe3fb',
-    height: 3,
+    height: 5,
   },
 });
