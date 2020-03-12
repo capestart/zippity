@@ -1,8 +1,8 @@
 import {
-  render, fireEvent,
+  render,
 } from '@testing-library/react-native';
 import React from 'react';
-import MultiSlider from '../slider/CustomSlider';
+import MultiSlider from '../../components/CustomSlider';
 
 describe('CustomSlider Page', () => {
   const times = [
@@ -42,9 +42,18 @@ describe('CustomSlider Page', () => {
     },
   ];
   const callback = jest.fn();
+  const onValuesChangeStartCallback = jest.fn();
+  const onValuesChangeFinishCallback = jest.fn();
   const {
     getByText,
-  } = render(<MultiSlider data={times} dataframe={timeFrame} padding={20} callback={callback} />);
+  } = render(<MultiSlider
+    data={times}
+    dataframe={timeFrame}
+    padding={20}
+    callback={callback}
+    onValuesChangeStartCallback={onValuesChangeStartCallback}
+    onValuesChangeFinishCallback={onValuesChangeFinishCallback}
+  />);
   test('Check slider item', async () => {
     expect(getByText('Noon')).toBeTruthy();
   });

@@ -17,16 +17,15 @@ describe('Schedule Page', () => {
     expect(tickIconURL).toBe('../../../app/assets/tick.png');
   });
   describe('Render available dates', () => {
-    const availableDates = getByRole('summary');
-    test('Check available dates count', async () => {
-      expect(availableDates.props.data.length).toBe(5);
+    test('Check unavailable item', async () => {
+      expect(getByText('Tuesday, February 4 (full)').parentNode.props.style.backgroundColor).toBe('#EEEEEE');
     });
     test('Check flatlist item before selection', async () => {
-      expect(getByText('Tuesday, February 4').parentNode.props.style.backgroundColor).toBe('#ffffff');
+      expect(getByText('Tuesday, February 18').parentNode.props.style.backgroundColor).toBe('#ffffff');
     });
     test('Check flatlist item after selection', async () => {
-      fireEvent.press(getByText('Tuesday, February 4'));
-      expect(getByText('Tuesday, February 4').parentNode.props.style.backgroundColor).toBe('#48999e');
+      fireEvent.press(getByText('Tuesday, February 18'));
+      expect(getByText('Tuesday, February 18').parentNode.props.style.backgroundColor).toBe('#48999e');
     });
     test('Validate continue button after date selection', async () => {
       expect(getByText('Continue').parentNode.props.style.backgroundColor).toBe(undefined);
