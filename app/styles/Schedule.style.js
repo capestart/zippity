@@ -204,7 +204,7 @@ export default StyleSheet.create({
     fontSize: 26,
     fontWeight: '500',
     textAlign: 'left',
-    marginTop: 0,
+    marginTop: 20,
     color: '#262626',
   },
   sliderContainer: {
