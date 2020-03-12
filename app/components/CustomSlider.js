@@ -25,13 +25,11 @@ const SliderItem = ({
   </View>
 );
 
-const RenderScale = ({ data, arrival, departure }) => data.map((item) => (
+const RenderScale = ({ data }) => data.map((item) => (
   <SliderItem
     key={item.value}
     value={item.value}
     data={item.time}
-    arrival={arrival}
-    departure={departure}
   />
 ));
 
@@ -40,15 +38,14 @@ const CustomSlider = ({
 }) => {
   const initialValue = [1, data.length];
   const [multiSliderValue, setMultiSliderValue] = useState(initialValue);
-  const [arrival, setArrival] = useState(1);
-  const [departure, setDeparture] = useState(data.length);
   const multiSliderValuesChange = (values) => {
+    const timeDifference = values[1] - values[0];
     if (values) {
-      setMultiSliderValue(values);
-      setArrival(values[0]);
-      setDeparture(values[1]);
-      const selectedValues = values.map((value) => data.find((item) => item.value === value));
-      callback(selectedValues);
+      if (timeDifference >= 4) {
+        setMultiSliderValue(values);
+        const selectedValues = values.map((value) => data.find((item) => item.value === value));
+        callback(selectedValues);
+      }
     }
   };
   const onValuesChangeStart = () => {
@@ -77,7 +74,7 @@ const CustomSlider = ({
         />
       </View>
       <View style={styles.column}>
-        <RenderScale data={dataframe} arrival={arrival} departure={departure} />
+        <RenderScale data={dataframe} />
       </View>
     </View>
   );
