@@ -72,24 +72,12 @@ const ServiceDateView = ({ onSelect, selected }) => (
         />
       ))
     }
-    {/* <FlatList
-      accessibilityRole="summary"
-      data={DATES}
-      style={styles.flatList}
-      renderItem={({ item }) => (
-        <Item
-          id={item.id}
-          date={item.date}
-          isAvailable={item.isAvailable}
-          selected={!!selected.get(item.id)}
-          onSelect={onSelect}
-        />
-      )}
-    /> */}
   </View>
 );
 
-const SeriveTimeView = ({ multiSliderValueCallback, arrival, departure }) => (
+const SeriveTimeView = ({
+  multiSliderValueCallback, arrival, departure, sliderValuesChangeStart, sliderValuesChangeFinish,
+}) => (
   <View>
     <Text style={styles.chooseTimeText}>When do you arrive and leave from work?</Text>
     <View style={styles.sliderContainer} accessibilityRole="progressbar">
@@ -98,6 +86,8 @@ const SeriveTimeView = ({ multiSliderValueCallback, arrival, departure }) => (
         dataframe={TIME_FRAME}
         padding={40}
         callback={multiSliderValueCallback}
+        onValuesChangeStartCallback={sliderValuesChangeStart}
+        onValuesChangeFinishCallback={sliderValuesChangeFinish}
         single={false}
       />
     </View>
@@ -159,6 +149,7 @@ export default function Schedule() {
   const [arrival, setArrival] = useState(DEFAULT_ARRIVAL_TIME);
   const [departure, setDeparture] = useState(DEFAULT_DEPARTURE_TIME);
   const [timeRange, setTimeRange] = useState(DEFAULT_TIME_RANGE);
+  const [scrollEnabled, setScrollEnabled] = useState(true);
   const onSelect = React.useCallback(
     (id) => {
       const newSelected = new Map();
@@ -178,12 +169,21 @@ export default function Schedule() {
     }
   };
 
+  const sliderValuesChangeStart = () => {
+    setScrollEnabled(false);
+  };
+
+  const sliderValuesChangeFinish = () => {
+    setScrollEnabled(true);
+  };
+
   return (
     <KeyboardAvoidingView behavior="position">
       <ScrollView
         style={styles.scrollViewContainer}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
+        scrollEnabled={scrollEnabled}
       >
         <View style={styles.container}>
           <HeaderInfo />
@@ -193,6 +193,8 @@ export default function Schedule() {
               multiSliderValueCallback={multiSliderValueCallback}
               arrival={arrival}
               departure={departure}
+              sliderValuesChangeStart={sliderValuesChangeStart}
+              sliderValuesChangeFinish={sliderValuesChangeFinish}
             />
             <View style={styles.bottomContainer}>
               <CommentsView />
@@ -228,6 +230,8 @@ SeriveTimeView.propTypes = {
   multiSliderValueCallback: PropTypes.func.isRequired,
   arrival: PropTypes.string.isRequired,
   departure: PropTypes.string.isRequired,
+  sliderValuesChangeStart: PropTypes.func.isRequired,
+  sliderValuesChangeFinish: PropTypes.func.isRequired,
 };
 ServiceDateView.propTypes = {
   onSelect: PropTypes.func.isRequired,

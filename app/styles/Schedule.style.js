@@ -105,7 +105,7 @@ export default StyleSheet.create({
     fontSize: 20,
   },
   selectedButton: {
-    marginTop: 30,
+    marginTop: 40,
     width: 200,
     height: 50,
     borderRadius: 5,

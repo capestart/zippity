@@ -36,7 +36,7 @@ const RenderScale = ({ data, arrival, departure }) => data.map((item) => (
 ));
 
 const CustomSlider = ({
-  data, dataframe, padding, callback,
+  data, dataframe, padding, callback, onValuesChangeStartCallback, onValuesChangeFinishCallback,
 }) => {
   const initialValue = [1, data.length];
   const [multiSliderValue, setMultiSliderValue] = useState(initialValue);
@@ -51,6 +51,12 @@ const CustomSlider = ({
       callback(selectedValues);
     }
   };
+  const onValuesChangeStart = () => {
+    onValuesChangeStartCallback();
+  };
+  const onValuesChangeFinish = () => {
+    onValuesChangeFinishCallback();
+  };
   return (
     <View>
       <View style={styles.container}>
@@ -60,6 +66,8 @@ const CustomSlider = ({
           values={[multiSliderValue[0], multiSliderValue[1]]}
           sliderLength={Dimensions.get('window').width - padding * 2}
           onValuesChange={multiSliderValuesChange}
+          onValuesChangeStart={onValuesChangeStart}
+          onValuesChangeFinish={onValuesChangeFinish}
           min={1}
           max={data.length}
           step={1}
@@ -92,6 +100,8 @@ CustomSlider.propTypes = {
   ).isRequired,
   padding: PropTypes.number.isRequired,
   callback: PropTypes.func.isRequired,
+  onValuesChangeStartCallback: PropTypes.func.isRequired,
+  onValuesChangeFinishCallback: PropTypes.func.isRequired,
 };
 
 SliderItem.propTypes = {
