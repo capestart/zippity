@@ -41,14 +41,14 @@ export default StyleSheet.create({
     height: 50,
   },
   unAvailableItem: {
-    backgroundColor: 'gray',
+    backgroundColor: '#EEEEEE',
     padding: 10,
     marginVertical: 3,
     marginHorizontal: 16,
     borderWidth: 0.5,
-    borderColor: '#ccc',
+    borderColor: '#DCDCDC',
     borderRadius: 3,
-    color: '#fff',
+    color: '#CBCBCB',
     height: 50,
   },
   title: {
@@ -63,7 +63,7 @@ export default StyleSheet.create({
   },
   unAvailableTitle: {
     fontFamily: 'Nunito-Regular',
-    color: '#fff',
+    color: '#CBCBCB',
     fontSize: 20,
   },
   markerStyle: {
