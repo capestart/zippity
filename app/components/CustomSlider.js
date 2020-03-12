@@ -4,13 +4,13 @@ import {
 } from 'react-native';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import PropTypes from 'prop-types';
-import styles from '../../styles/CustomSlider.style';
+import styles from '../styles/CustomSlider.style';
 
 
 const SliderMarker = () => (
   <Image
     style={styles.image}
-    source={require('../../assets/slider-button.png')}
+    source={require('../assets/slider-button.png')}
     resizeMode="contain"
   />
 );

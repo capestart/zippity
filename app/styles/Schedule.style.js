@@ -40,12 +40,28 @@ export default StyleSheet.create({
     color: '#fff',
     height: 50,
   },
+  unAvailableItem: {
+    backgroundColor: 'gray',
+    padding: 10,
+    marginVertical: 3,
+    marginHorizontal: 16,
+    borderWidth: 0.5,
+    borderColor: '#ccc',
+    borderRadius: 3,
+    color: '#fff',
+    height: 50,
+  },
   title: {
     fontFamily: 'Nunito-Regular',
     fontSize: 20,
     color: '#262626',
   },
   selectedTitle: {
+    fontFamily: 'Nunito-Regular',
+    color: '#fff',
+    fontSize: 20,
+  },
+  unAvailableTitle: {
     fontFamily: 'Nunito-Regular',
     color: '#fff',
     fontSize: 20,
@@ -244,7 +260,7 @@ export default StyleSheet.create({
     flexGrow: 0,
     height: 320,
   },
-  commentsView: {
+  bottomContainer: {
     paddingTop: 80,
   },
   commentsText: {
