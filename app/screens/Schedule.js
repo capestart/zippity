@@ -76,7 +76,7 @@ const ServiceDateView = ({ onSelect, selected }) => (
 );
 
 const SeriveTimeView = ({
-  multiSliderValueCallback, arrival, departure, sliderValuesChangeStart, sliderValuesChangeFinish,
+  multiSliderValueCallback, arrival, departure, sliderValuesChangeStart,
 }) => (
   <View>
     <Text style={styles.chooseTimeText}>When do you arrive and leave from work?</Text>
@@ -87,7 +87,6 @@ const SeriveTimeView = ({
         padding={40}
         callback={multiSliderValueCallback}
         onValuesChangeStartCallback={sliderValuesChangeStart}
-        onValuesChangeFinishCallback={sliderValuesChangeFinish}
         single={false}
       />
     </View>
@@ -144,6 +143,24 @@ const ContinueButton = ({ selected, timeRange }) => {
   );
 };
 
+const ErrorComponent = ({ selected, timeRange }) => {
+  if (selected.size === 0) {
+    return (
+      <Text style={styles.errorText}>
+        Please select a date and time before you can continue
+      </Text>
+    );
+  }
+  if (selected.size !== 0 && timeRange < TIME_RANGE_LIMIT) {
+    return (
+      <Text style={styles.errorText}>
+        Please select an availability time range that is at least 4 hours
+      </Text>
+    );
+  }
+  return (<Text />);
+};
+
 export default function Schedule() {
   const [selected, setSelected] = useState(new Map());
   const [arrival, setArrival] = useState(DEFAULT_ARRIVAL_TIME);
@@ -162,19 +179,16 @@ export default function Schedule() {
     [selected],
   );
   const multiSliderValueCallback = (values) => {
-    if (values !== undefined) {
+    if (values.length !== 0) {
       setArrival(values[0].time);
       setDeparture(values[1].time);
       setTimeRange(values[1].value - values[0].value);
     }
+    setScrollEnabled(true);
   };
 
   const sliderValuesChangeStart = () => {
     setScrollEnabled(false);
-  };
-
-  const sliderValuesChangeFinish = () => {
-    setScrollEnabled(true);
   };
 
   return (
@@ -194,18 +208,11 @@ export default function Schedule() {
               arrival={arrival}
               departure={departure}
               sliderValuesChangeStart={sliderValuesChangeStart}
-              sliderValuesChangeFinish={sliderValuesChangeFinish}
             />
             <View style={styles.bottomContainer}>
               <CommentsView />
               <ContinueButton selected={selected} timeRange={timeRange} />
-              { (selected.size === 0 || timeRange < TIME_RANGE_LIMIT)
-                ? (
-                  <Text style={styles.errorText}>
-                    Please select a date and time before you can continue
-                  </Text>
-                )
-                : <Text />}
+              <ErrorComponent selected={selected} timeRange={timeRange} />
             </View>
           </View>
         </View>
@@ -231,13 +238,16 @@ SeriveTimeView.propTypes = {
   arrival: PropTypes.string.isRequired,
   departure: PropTypes.string.isRequired,
   sliderValuesChangeStart: PropTypes.func.isRequired,
-  sliderValuesChangeFinish: PropTypes.func.isRequired,
 };
 ServiceDateView.propTypes = {
   onSelect: PropTypes.func.isRequired,
   selected: PropTypes.instanceOf(Map).isRequired,
 };
 ContinueButton.propTypes = {
+  selected: PropTypes.instanceOf(Map).isRequired,
+  timeRange: PropTypes.number.isRequired,
+};
+ErrorComponent.propTypes = {
   selected: PropTypes.instanceOf(Map).isRequired,
   timeRange: PropTypes.number.isRequired,
 };

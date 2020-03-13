@@ -32,27 +32,21 @@ const RenderScale = ({ data }) => data.map((item) => (
     data={item.time}
   />
 ));
-
 const CustomSlider = ({
-  data, dataframe, padding, callback, onValuesChangeStartCallback, onValuesChangeFinishCallback,
+  data, dataframe, padding, callback, onValuesChangeStartCallback,
 }) => {
   const initialValue = [1, data.length];
   const [multiSliderValue, setMultiSliderValue] = useState(initialValue);
   const multiSliderValuesChange = (values) => {
-    const timeDifference = values[1] - values[0];
-    if (values) {
-      if (timeDifference >= 4) {
-        setMultiSliderValue(values);
-        const selectedValues = values.map((value) => data.find((item) => item.value === value));
-        callback(selectedValues);
-      }
-    }
+    setMultiSliderValue(values);
   };
   const onValuesChangeStart = () => {
     onValuesChangeStartCallback();
   };
-  const onValuesChangeFinish = () => {
-    onValuesChangeFinishCallback();
+  const onValuesChangeFinish = (values) => {
+    setMultiSliderValue(values);
+    const selectedValues = values.map((value) => data.find((item) => item.value === value));
+    callback(selectedValues);
   };
   return (
     <View>
@@ -70,7 +64,6 @@ const CustomSlider = ({
           step={1}
           allowOverlap={false}
           customMarker={SliderMarker}
-          snapped
         />
       </View>
       <View style={styles.column}>
@@ -98,7 +91,6 @@ CustomSlider.propTypes = {
   padding: PropTypes.number.isRequired,
   callback: PropTypes.func.isRequired,
   onValuesChangeStartCallback: PropTypes.func.isRequired,
-  onValuesChangeFinishCallback: PropTypes.func.isRequired,
 };
 
 SliderItem.propTypes = {
