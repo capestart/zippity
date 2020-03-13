@@ -2,7 +2,7 @@ import {
   render,
 } from '@testing-library/react-native';
 import React from 'react';
-import MultiSlider from '../../components/CustomSlider';
+import MultiSlider from '../CustomSlider';
 
 describe('CustomSlider Page', () => {
   const times = [

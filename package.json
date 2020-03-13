@@ -15,7 +15,7 @@
     ]
   },
   "dependencies": {
-    "@ptomasroos/react-native-multi-slider": "^1.0.0",
+    "@ptomasroos/react-native-multi-slider": "^2.0.0",
     "@react-native-community/masked-view": "^0.1.5",
     "babel-jest": "^25.1.0",
     "enzyme": "^3.11.0",
